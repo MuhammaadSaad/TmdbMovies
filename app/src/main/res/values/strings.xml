@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tmdb Movies Api</string>
+    <string name="menu_clear">Clear</string>
+    <string name="menu_search">Search</string>
+    <string name="query_hint">Marvel</string>
+
+    <string name="vote_count">%1$d Votes</string>
+    <string name="pop_count">%1$f</string>
+
+    <string name="cast_as_character">as %1$s</string>
+    <string name="tab_reviews">User Reviews</string>
+    <string name="tab_trailers">Official Trailers</string>
+</resources>
