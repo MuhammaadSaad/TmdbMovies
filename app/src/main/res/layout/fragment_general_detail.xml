@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adult"
-            android:enabled="@{viewModel.movie.adult}"
+            android:visibility="@{viewModel.movie.adult ? View.VISIBLE : View.GONE}"
             android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             android:textColor="@color/secondaryColor"
@@ -101,27 +101,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
+
             android:layout_marginTop="8dp"
             android:text="Release Date"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             android:textColor="@color/secondaryTextColor"
             app:layout_constraintStart_toEndOf="@+id/label_language"
-            app:layout_constraintTop_toBottomOf="@+id/text_release_date" />
+
+            app:layout_constraintTop_toBottomOf="@+id/view_divider"/>
 
         <TextView
             android:id="@+id/text_release_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:drawableStart="@drawable/ic_av_timer_white"
             android:drawablePadding="4dp"
             android:gravity="center"
+            android:layout_marginTop="6dp"
             android:textColor="@color/secondaryDarkColor"
             android:text="@{viewModel.movie.releaseDate}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             app:layout_constraintEnd_toEndOf="@+id/label_release_date"
             app:layout_constraintStart_toStartOf="@+id/label_release_date"
-            app:layout_constraintTop_toBottomOf="@+id/view_divider"
+            app:layout_constraintTop_toBottomOf="@+id/label_release_date"
+
             tools:text="@tools:sample/date/mmddyy" />
 
         <TextView
@@ -130,40 +133,43 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Popularity"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_marginStart="5dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             android:textColor="@color/secondaryTextColor"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/label_release_date"
-            app:layout_constraintTop_toBottomOf="@+id/text_popularity" />
+            app:layout_constraintStart_toEndOf="@id/label_release_date"
+            app:layout_constraintTop_toBottomOf="@+id/view_divider" />
 
         <TextView
             android:id="@+id/text_popularity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:drawableStart="@drawable/favorite"
+            android:layout_marginTop="6dp"
             android:drawablePadding="4dp"
             android:gravity="center"
+            android:drawableStart="@drawable/favorite"
             android:textColor="@color/secondaryDarkColor"
             android:text="@{@string/pop_count(viewModel.movie.popularity)}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-            app:layout_constraintEnd_toEndOf="@+id/label_popularity"
+
+            app:layout_constraintEnd_toEndOf="@id/label_popularity"
             app:layout_constraintStart_toStartOf="@+id/label_popularity"
-            app:layout_constraintTop_toBottomOf="@+id/view_divider"
+            app:layout_constraintTop_toBottomOf="@+id/label_popularity"
             tools:text="411.55" />
         <TextView
             android:id="@+id/label_vote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
             android:text="@{@string/vote_count(viewModel.movie.voteCount)}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             android:textColor="@color/secondaryTextColor"
             app:layout_constraintEnd_toStartOf="@+id/label_language"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_vote"
+            app:layout_constraintTop_toBottomOf="@+id/view_divider"
             tools:text="233 votes" />
 
         <TextView
@@ -172,12 +178,14 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_star_white"
             android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/label_vote"
             android:textColor="@color/secondaryDarkColor"
             app:voteAvg="@{viewModel.movie.voteAverage}"
+            android:paddingLeft="4dp"
+            android:layout_marginTop="6dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             app:layout_constraintEnd_toEndOf="@+id/label_vote"
             app:layout_constraintStart_toStartOf="@+id/label_vote"
-            app:layout_constraintTop_toTopOf="@+id/text_release_date"
             tools:text="7/10" />
 
         <TextView
@@ -186,12 +194,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Language"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             android:textColor="@color/secondaryTextColor"
             app:layout_constraintEnd_toStartOf="@+id/label_release_date"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/label_vote"
-            app:layout_constraintTop_toBottomOf="@+id/text_language" />
+            app:layout_constraintTop_toBottomOf="@+id/view_divider"/>
 
         <TextView
             android:id="@+id/text_language"
@@ -199,13 +207,14 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_language"
             android:drawablePadding="4dp"
+            android:layout_marginTop="6dp"
             android:gravity="center"
             android:textColor="@color/secondaryDarkColor"
             android:text="@{viewModel.movie.language}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             app:layout_constraintEnd_toEndOf="@+id/label_language"
             app:layout_constraintStart_toStartOf="@+id/label_language"
-            app:layout_constraintTop_toTopOf="@+id/text_vote"
+            app:layout_constraintTop_toBottomOf="@+id/label_language"
             tools:text="en" />
 
         <View
@@ -216,7 +225,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_vote" />
+            app:layout_constraintTop_toBottomOf="@+id/text_vote" />
 
 
         <TextView

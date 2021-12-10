@@ -4,7 +4,7 @@
     <color name="primaryLightColor">#03A9F4</color>
     <color name="primaryDarkColor">#673AB7</color>
     <color name="secondaryColor">#8BC34A</color>
-    <color name="secondaryLightColor">#8BC34A</color>
+    <color name="secondaryLightColor">#FFFFFF</color>
     <color name="secondaryDarkColor">#009688</color>
     <color name="primaryTextColor">#8BC34A</color>
     <color name="secondaryTextColor">#03A9F4</color>
